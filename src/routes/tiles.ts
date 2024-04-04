@@ -26,7 +26,7 @@ tiles.get('/:id/tile.json', zValidator('param', z.object({ id: z.string() })), a
   const pmtiles = openPMTiles(c.env.PM_TILES_BUCKET, key);
   const tileJSON = await generateTileJSONFromPMTiles(pmtiles, url.origin, id);
   return c.json(tileJSON, 200, {
-    'Cache-Control': 'public, s-max-age=3600',
+    'Cache-Control': 'public, s-max-age=86400',
   });
 });
 
@@ -72,7 +72,7 @@ tiles.get(
     const tile = await getTileFromPMTiles(pmtiles, z, x, y, extension);
     return c.newResponse(tile.body, 200, {
       ...tile.headers,
-      'Cache-Control': 'public, s-max-age=3600',
+      'Cache-Control': 'public, s-max-age=86400',
     });
   }
 );

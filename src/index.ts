@@ -20,7 +20,7 @@ app.get('/', (c) => {
 });
 
 app.route('/tiles', tiles);
-app.route('/fonts', fonts);
+/*app.route('/fonts', fonts);
 
 app.get('/fonts.json', async (c) => {
   const fontDataResponse = await c.env.PM_TILES_BUCKET.list({
@@ -32,6 +32,6 @@ app.get('/fonts.json', async (c) => {
       return value.key.replace('/fonts/', '');
     })
   );
-});
+});*/
 
 export default app;
